@@ -142,7 +142,7 @@ function installKicad
     fi
 
     # Check if the PPA is already added
-    if ! grep -q "^deb .*${kicadppa}" /etc/apt/sources.list /etc/apt/sources.list.d/* 2>/dev/null; then
+    if ! grep -q "VERSION_ID=\"25.04\"" /etc/os-release && ! grep -q "^deb .*${kicadppa}" /etc/apt/sources.list /etc/apt/sources.list.d/* 2>/dev/null; then
         echo "Adding KiCad PPA to local apt repository: $kicadppa"
         sudo add-apt-repository -y "ppa:$kicadppa"
         sudo apt-get update
